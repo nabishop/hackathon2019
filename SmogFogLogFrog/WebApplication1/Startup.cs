@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +27,8 @@ namespace WebApplication1
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +43,9 @@ namespace WebApplication1
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
+
+            app.UseMvc();
+            app.Run(async (context) => await context.Response.WriteAsync("MVC didn't find anything"));
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
