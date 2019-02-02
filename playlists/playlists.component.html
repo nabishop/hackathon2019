@@ -1,0 +1,9 @@
+<h2>My Playlists</h2>
+<ul class="playlists">
+  <li *ngFor="let playlist of playlists">
+		<a routerLink="/detail/{{playlist.id}}">
+    		<span class="badge">{{playlist.id}}</span> {{playlist.name}}
+	</a>
+  </li>
+</ul>
+ 
