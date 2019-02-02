@@ -15,7 +15,7 @@ namespace RhopikApi.Controllers
     {
         private readonly PlaylistItemContext _context;
 
-        // GET: api/Playlist
+        // GET: api/playlist
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PlaylistItem>>> GetPlaylistItems()
         {
@@ -24,7 +24,7 @@ namespace RhopikApi.Controllers
 
 
 
-        // GET: api/Playlist/5
+        // GET: api/playlist/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PlaylistItem>> GetPlaylistItem(long id)
         {
@@ -38,7 +38,7 @@ namespace RhopikApi.Controllers
             return playlistItem;
         }
 
-        // POST: api/Playlist
+        // POST: api/playlist
         [HttpPost]
         public async Task<ActionResult<PlaylistItem>> PostPlaylistItem(PlaylistItem item)
         {
@@ -48,7 +48,7 @@ namespace RhopikApi.Controllers
             return CreatedAtAction(nameof(GetPlaylistItem), new { id = item.Id }, item);
         }
 
-        // PUT: api/Playlist/5
+        // PUT: api/playlist/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPlaylistItem(long id, PlaylistItem item)
         {
@@ -63,7 +63,7 @@ namespace RhopikApi.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Playlist/5
+        // DELETE: api/playlist/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePlaylistItem(long id)
         {
