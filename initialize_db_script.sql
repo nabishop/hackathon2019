@@ -28,4 +28,4 @@ create table users(
 name varchar(30) not null,
 password varchar(30) not null,
 user_id int unsigned not null auto_increment primary key
-)
+);
