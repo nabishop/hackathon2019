@@ -758,7 +758,7 @@
     ".NETCoreApp,Version=v2.1": [
       "Microsoft.NETCore.App >= 2.1.0",
       "MySql >= 5.5.14.1",
-      "MySqlConnector >= 0.49.3"
+      "MySqlConnector"
     ]
   },
   "packageFolders": {
@@ -768,11 +768,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nick\\Documents\\GitHub\\hackathon2019\\RhopikApi\\RhopikApi.csproj",
-      "projectName": "RhopikApi",
-      "projectPath": "C:\\Users\\Nick\\Documents\\GitHub\\hackathon2019\\RhopikApi\\RhopikApi.csproj",
+      "projectUniqueName": "C:\\Users\\Nick\\Documents\\GitHub\\hackathon2019\\hackathon2019.csproj",
+      "projectName": "hackathon2019",
+      "projectPath": "C:\\Users\\Nick\\Documents\\GitHub\\hackathon2019\\hackathon2019.csproj",
       "packagesPath": "C:\\Users\\Nick\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nick\\Documents\\GitHub\\hackathon2019\\RhopikApi\\obj\\",
+      "outputPath": "C:\\Users\\Nick\\Documents\\GitHub\\hackathon2019\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -813,7 +813,7 @@
           },
           "MySqlConnector": {
             "target": "Package",
-            "version": "[0.49.3, )"
+            "version": "(, )"
           }
         },
         "imports": [

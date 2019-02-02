@@ -9,20 +9,22 @@ using Microsoft.AspNetCore.Builder;
 
 namespace RhopikApi.Controllers
 {
-    [Route("api/song")]
+    [Route("api/playlist")]
     [ApiController]
     public class PlaylistController : ControllerBase
     {
         private readonly PlaylistItemContext _context;
 
-        // GET: api/Song
+        // GET: api/Playlist
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PlaylistItem>>> GetPlaylistItems()
         {
             return await _context.PlaylistItems.ToListAsync();
         }
 
-        // GET: api/Song/5
+
+
+        // GET: api/Playlist/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PlaylistItem>> GetPlaylistItem(long id)
         {
@@ -36,7 +38,7 @@ namespace RhopikApi.Controllers
             return playlistItem;
         }
 
-        // POST: api/Song
+        // POST: api/Playlist
         [HttpPost]
         public async Task<ActionResult<PlaylistItem>> PostPlaylistItem(PlaylistItem item)
         {
@@ -46,7 +48,7 @@ namespace RhopikApi.Controllers
             return CreatedAtAction(nameof(GetPlaylistItem), new { id = item.Id }, item);
         }
 
-        // PUT: api/Song/5
+        // PUT: api/Playlist/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPlaylistItem(long id, PlaylistItem item)
         {
@@ -61,7 +63,7 @@ namespace RhopikApi.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Song/5
+        // DELETE: api/Playlist/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePlaylistItem(long id)
         {
