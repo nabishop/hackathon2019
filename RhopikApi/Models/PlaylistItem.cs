@@ -7,7 +7,8 @@ namespace RhopikApi.Models
         public string Name { get; set; }
         public string Vibe { get; set; }
         public string DateAdded { get; set; }
-        public string UserId { get; set; }
+        public long UserId { get; set; }
+        public long SongId { get; set; }
     }
 }
 
