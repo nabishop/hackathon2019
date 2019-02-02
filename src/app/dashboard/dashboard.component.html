@@ -1,0 +1,9 @@
+<h3>Top Playlists</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let playlist of playlists" class="col-1-4"
+      routerLink="/detail/{{playlist.id}}">
+    <div class="module playlist">
+      <h4>{{playlist.name}}</h4>
+    </div>
+  </a>
+</div>
