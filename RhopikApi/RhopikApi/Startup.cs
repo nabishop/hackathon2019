@@ -35,7 +35,6 @@ namespace RhopikApi
             //opt.(connectionString));
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-
             services.AddMvc();
             services.Add(new ServiceDescriptor(typeof(SongItemContext), new SongItemContext(Configuration.GetConnectionString("DefaultConnection"))));
         }
