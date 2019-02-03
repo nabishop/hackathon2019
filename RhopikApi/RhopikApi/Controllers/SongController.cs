@@ -26,24 +26,24 @@ namespace RhopikApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<SongItem>> GetSongItem(long id)
         {
-            var songItem = await _context.SongItems.FindAsync(id);
+            //var songItem = await _context.SongItems.FindAsync(id);
 
-            if (songItem == null)
-            {
-                return NotFound();
-            }
+            //if (songItem == null)
+            //{
+              //  return NotFound();
+            //}
 
-            return songItem;
+            return _context.getOneSong(id);
         }
 
         // POST: api/Song
         [HttpPost]
         public async Task<ActionResult<SongItem>> PostSongItem(SongItem item)
         {
-            _context.SongItems.Add(item);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetSongItem), new { id = item.song_id }, item);
+            //_context.SongItems.Add(item);
+            //await _context.SaveChangesAsync();
+            _context.addToDB(item);
+             return CreatedAtAction(nameof(GetSongItem), new { id = item.song_id }, item);
         }
 
         // PUT: api/Song/5
@@ -54,9 +54,9 @@ namespace RhopikApi.Controllers
             {
                 return BadRequest();
             }
-
-            _context.Entry(item).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            _context.editItem(id, item);
+            //_context.Entry(item).State = EntityState.Modified;
+            //await _context.SaveChangesAsync();
 
             return NoContent();
         }
@@ -65,15 +65,15 @@ namespace RhopikApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSongItem(long id)
         {
-            var songItem = await _context.SongItems.FindAsync(id);
+            //var songItem = await _context.SongItems.FindAsync(id);
 
-            if (songItem == null)
+            /*if (songItem == null)
             {
                 return NotFound();
-            }
-
-            _context.SongItems.Remove(songItem);
-            await _context.SaveChangesAsync();
+            }*/
+            _context.deleteItem(id);
+            //_context.SongItems.Remove(songItem);
+            //await _context.SaveChangesAsync();
 
             return NoContent();
         }

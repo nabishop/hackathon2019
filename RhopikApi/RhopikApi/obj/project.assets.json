@@ -11945,23 +11945,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nick\\.nuget\\packages\\": {},
+    "C:\\Users\\KK\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nick\\Documents\\GitHub\\hackathon2019\\RhopikApi\\RhopikApi\\RhopikApi.csproj",
+      "projectUniqueName": "C:\\Users\\KK\\Documents\\GitHub\\hackathon2019\\RhopikApi\\RhopikApi\\RhopikApi.csproj",
       "projectName": "RhopikApi",
-      "projectPath": "C:\\Users\\Nick\\Documents\\GitHub\\hackathon2019\\RhopikApi\\RhopikApi\\RhopikApi.csproj",
-      "packagesPath": "C:\\Users\\Nick\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nick\\Documents\\GitHub\\hackathon2019\\RhopikApi\\RhopikApi\\obj\\",
+      "projectPath": "C:\\Users\\KK\\Documents\\GitHub\\hackathon2019\\RhopikApi\\RhopikApi\\RhopikApi.csproj",
+      "packagesPath": "C:\\Users\\KK\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\KK\\Documents\\GitHub\\hackathon2019\\RhopikApi\\RhopikApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Nick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\KK\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

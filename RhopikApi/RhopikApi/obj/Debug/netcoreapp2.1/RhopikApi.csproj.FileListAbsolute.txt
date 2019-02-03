@@ -26,3 +26,17 @@ C:\Users\Nick\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\bin\Debug\netco
 C:\Users\Nick\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\bin\Debug\netcoreapp2.1\RhopikApi.dll
 C:\Users\Nick\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\bin\Debug\netcoreapp2.1\RhopikApi.pdb
 C:\Users\Nick\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\obj\Debug\netcoreapp2.1\RhopikApi.RazorTargetAssemblyInfo.cache
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\obj\Debug\netcoreapp2.1\RhopikApi.csprojAssemblyReference.cache
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\obj\Debug\netcoreapp2.1\RhopikApi.csproj.CoreCompileInputs.cache
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\obj\Debug\netcoreapp2.1\RhopikApi.RazorAssemblyInfo.cache
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\obj\Debug\netcoreapp2.1\RhopikApi.RazorAssemblyInfo.cs
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\obj\Debug\netcoreapp2.1\RhopikApi.AssemblyInfoInputs.cache
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\obj\Debug\netcoreapp2.1\RhopikApi.AssemblyInfo.cs
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\obj\Debug\netcoreapp2.1\RhopikApi.dll
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\obj\Debug\netcoreapp2.1\RhopikApi.pdb
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\bin\Debug\netcoreapp2.1\RhopikApi.deps.json
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\bin\Debug\netcoreapp2.1\RhopikApi.runtimeconfig.json
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\bin\Debug\netcoreapp2.1\RhopikApi.runtimeconfig.dev.json
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\bin\Debug\netcoreapp2.1\RhopikApi.dll
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\bin\Debug\netcoreapp2.1\RhopikApi.pdb
+C:\Users\KK\Documents\GitHub\hackathon2019\RhopikApi\RhopikApi\obj\Debug\netcoreapp2.1\RhopikApi.RazorTargetAssemblyInfo.cache
