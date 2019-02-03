@@ -36,6 +36,7 @@ namespace RhopikApi
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddMvc();
+            services.AddCors();
             services.Add(new ServiceDescriptor(typeof(SongItemContext), new SongItemContext(Configuration.GetConnectionString("DefaultConnection"))));
             services.Add(new ServiceDescriptor(typeof(UserItemContext), new UserItemContext(Configuration.GetConnectionString("DefaultConnection"))));
             services.Add(new ServiceDescriptor(typeof(PlaylistItemContext), new PlaylistItemContext(Configuration.GetConnectionString("DefaultConnection"))));
@@ -61,6 +62,8 @@ namespace RhopikApi
 
             app.UseStaticFiles();
             app.UseMvc(routes => routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}"));
+
+            app.UseCors(builder => builder.WithOrigins("https://localhost:5001/index.html", "https://localhost:4200/index.html"));
         }
     }
 }
