@@ -10,16 +10,12 @@ import { PlaylistService } from '../playlist.service';
 
 export class PlaylistsComponent implements OnInit {
 
-	playlists: Playlist[];
+	public playlists = [];			//local playlists property built from db
 
   constructor(private playlistService: PlaylistService) { }
 
   ngOnInit() {
-	this.getPlaylists();
+	this.playlistService.getPlaylists().subscribe(data => this.playlists = data);
   }
 
-	getPlaylists(): void {
-		this.playlistService.getPlaylists()
-			.subscribe(playlists => this.playlists = playlists);
-	}
 }

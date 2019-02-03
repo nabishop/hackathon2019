@@ -24,7 +24,7 @@ export class PlaylistDetailComponent implements OnInit {
   }
 
   getPlaylist(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = +this.route.snapshot.paramMap.get('id');		//static image of route at time created
     this.playlistService.getPlaylist(id)
       .subscribe(playlist => this.playlist = playlist);
   }

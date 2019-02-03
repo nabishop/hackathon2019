@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppService } from './app.service';
-import { SafePost } from './safe-post.interface';
+import { Playlist } from './playlist';
 
 import { interval } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -15,14 +15,14 @@ import { map } from 'rxjs/operators';
 export class AppComponent implements OnInit{
   title = 'Rhopik';
 	interval_MSEC = 10000;
-  postsVoid$$: Observable<Observable<void>>;
-	posts: SafePost[];
+  playlistsVoid$$: Observable<Observable<void>>;
+	playlists: Playlist[];
 
 	constructor(private appService: AppService){
 	}
 
 	ngOnInit() {
-		this.postsVoid$$ = this.getRestItemsIntervalVoid$$();
+		this.playlistsVoid$$ = this.getRestItemsIntervalVoid$$();
 	}
 
   getRestItemsIntervalVoid$$(): Observable<Observable<void>> {
@@ -31,16 +31,16 @@ export class AppComponent implements OnInit{
         map(
           counter => {
             console.log(counter + ': read restItems');
-            return this.assignRestItemsToPosts$();
+            return this.assignRestItemsToPlaylists$();
           }
         )
       );
   }
 
-  assignRestItemsToPosts$(): Observable<void> {
+  assignRestItemsToPlaylists$(): Observable<void> {
     return this.appService.getAll().pipe(
-      map(posts => {
-        this.posts = posts;
+      map(playlists => {
+        this.playlists = playlists;
       }));
   }
 }

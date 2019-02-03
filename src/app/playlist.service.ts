@@ -14,7 +14,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class PlaylistService {
 
-  private playlistsUrl = './mock-playlists.json';  // URL to web api
+  private playlistsUrl = '/api/playlist';  // URL to web api
 
   constructor(
     private http: HttpClient,

@@ -1,5 +1,6 @@
 import { Song } from './song';
-export class Playlist {
+
+export interface Playlist {
   id: number;
   name: string;
   vibe: string;

@@ -1,30 +1,38 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
+	<div style="text-align:center">
+  		<h1>
+    		Welcome to {{ title  | uppercase}}!
+  		</h1>
+	</div>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-spacer"></span>
+
+<nav>
+   <button mat-button routerLink="/dashboard">Dashboard</button>
+   <button mat-button routerLink="/playlists">Playlists</button>
+</nav>
+  </mat-toolbar-row>
+</mat-toolbar>
 
 <ng-template #loading>
   Loading...
 </ng-template>
 
-<div *ngIf="!(posts == (postsVoid$$  | async | async)); else loading"></div>
+<div *ngIf="!(playlists == (playlistsVoid$$  | async | async)); else loading"></div>
 
 <ul>
-  <li *ngFor="let post of posts" [innerHTML]="post.title" (click)="selectedPost = post"> 
+  <li *ngFor="let playlist of playlists" [innerHTML]="playlist.name" (click)="selectedPlaylist = playlist"> 
   </li>
 </ul>
 
-<div *ngIf="selectedPost">
-  <h1 [innerHTML]="selectedPost.title"></h1>
-  <div [innerHTML]="selectedPost.content"></div>
+<div *ngIf="selectedPlaylist">
+  <h1 [innerHTML]="selectedPlaylist.name"></h1>
+  <div [innerHTML]="selectedPlaylist.vibe"></div>
+  <div [innerHTML]="selectedPlaylist.songs"></div>
 </div>
 
-<nav>
-	<a routerLink="/dashboard">Dashboard</a>
-	<a routerLink="/playlists">Playlists</a>
-</nav>
 <router-outlet></router-outlet>
 
 <app-playlists></app-playlists>

@@ -3,12 +3,14 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {first} from "rxjs/operators";
 import {AuthenticationService} from "../auth.service";
+import {MatDialog} from '@angular/material'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
@@ -21,8 +23,8 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    if(this.loginForm.controls.email.value == 'dhiraj@gmail.com' && this.loginForm.controls.password.value == 'password') {
-        this.router.navigate(['list-user']);
+    if(this.loginForm.controls.email.value == 'sshbae' && this.loginForm.controls.password.value == 'password') {
+        this.router.navigate(['/playlists']);
     }else {
       this.invalidLogin = true;
     }
