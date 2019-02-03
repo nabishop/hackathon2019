@@ -3,6 +3,9 @@ import { Observable } from 'rxjs';
 import { AppService } from './app.service';
 import { SafePost } from './safe-post.interface';
 
+import { interval } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,17 +14,33 @@ import { SafePost } from './safe-post.interface';
 
 export class AppComponent implements OnInit{
   title = 'Rhopik';
-  posts$: Observable<SafePost[]>;
+	interval_MSEC = 10000;
+  postsVoid$$: Observable<Observable<void>>;
+	posts: SafePost[];
 
 	constructor(private appService: AppService){
 	}
 
 	ngOnInit() {
-		this.posts$ = this.getRestItems$();
+		this.postsVoid$$ = this.getRestItemsIntervalVoid$$();
 	}
 
-  getRestItems$(): Observable<SafePost[]> {
-    return this.appService.getAll()
-      .pipe(posts => posts);
+  getRestItemsIntervalVoid$$(): Observable<Observable<void>> {
+    return interval(this.interval_MSEC)
+      .pipe(
+        map(
+          counter => {
+            console.log(counter + ': read restItems');
+            return this.assignRestItemsToPosts$();
+          }
+        )
+      );
+  }
+
+  assignRestItemsToPosts$(): Observable<void> {
+    return this.appService.getAll().pipe(
+      map(posts => {
+        this.posts = posts;
+      }));
   }
 }

@@ -10,6 +10,7 @@ import { AppService } from './app.service';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { PlaylistDetailComponent } from './playlist-detail/playlist-detail.component';
 import { AppRoutingModule } from './app-routing.module';
+import { MessagesComponent } from './messages/messages.component';
 
 
 // @NgModule decorator with its metadata
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
 	 DashboardComponent,
     PlaylistsComponent,
-    PlaylistDetailComponent
+    PlaylistDetailComponent,
+    MessagesComponent
   ],
   imports: [
     FormsModule,

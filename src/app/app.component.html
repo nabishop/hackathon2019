@@ -5,6 +5,22 @@
   </h1>
 </div>
 
+<ng-template #loading>
+  Loading...
+</ng-template>
+
+<div *ngIf="!(posts == (postsVoid$$  | async | async)); else loading"></div>
+
+<ul>
+  <li *ngFor="let post of posts" [innerHTML]="post.title" (click)="selectedPost = post"> 
+  </li>
+</ul>
+
+<div *ngIf="selectedPost">
+  <h1 [innerHTML]="selectedPost.title"></h1>
+  <div [innerHTML]="selectedPost.content"></div>
+</div>
+
 <nav>
 	<a routerLink="/dashboard">Dashboard</a>
 	<a routerLink="/playlists">Playlists</a>

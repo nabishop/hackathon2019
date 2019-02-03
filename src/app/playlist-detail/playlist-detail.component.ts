@@ -32,4 +32,8 @@ export class PlaylistDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+	save(): void {
+		this.playlistService.updatePlaylist(this.playlist).subscribe(() => this.goBack());
+	}
 }
