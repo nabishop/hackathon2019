@@ -7,6 +7,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Playlist } from './playlist';
 import { MessageService } from './message.service';
 
+import { PLAYLISTS } from './mock-playlists';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -22,16 +24,24 @@ export class PlaylistService {
     private messageService: MessageService) { }
 
   /** GET playlists from the server */
-  getPlaylists (): Observable<Playlist[]> {
+/*  getPlaylists (): Observable<Playlist[]> {
     return this.http.get<Playlist[]>(this.playlistsUrl)
       .pipe(
         tap(_ => this.log('fetched playlists')),
         catchError(this.handleError('getPlaylists', []))
       );
+  }*/
+
+  getPlaylists(): Observable<Playlist[]> {
+    return of(PLAYLISTS);
+  }
+
+  getPlaylist(id: number): Observable<Playlist> {
+    return of(PLAYLISTS.find(playlist => playlist.id === id));
   }
 
   /** GET playlist by id. Return `undefined` when id not found */
-  getPlaylistNo404<Data>(id: number): Observable<Playlist> {
+/*  getPlaylistNo404<Data>(id: number): Observable<Playlist> {
     const url = `${this.playlistsUrl}/?id=${id}`;
     return this.http.get<Playlist[]>(url)
       .pipe(
@@ -42,16 +52,16 @@ export class PlaylistService {
         }),
         catchError(this.handleError<Playlist>(`getPlaylist id=${id}`))
       );
-  }
+  } */
 
   /** GET playlist by id. Will 404 if id not found */
-  getPlaylist(id: number): Observable<Playlist> {
+  /*getPlaylist(id: number): Observable<Playlist> {
     const url = `${this.playlistsUrl}/${id}`;
     return this.http.get<Playlist>(url).pipe(
       tap(_ => this.log(`fetched playlist id=${id}`)),
       catchError(this.handleError<Playlist>(`getPlaylist id=${id}`))
     );
-  }
+  }*/
 
   /* GET playlists whose name contains search term */
   searchPlaylists(term: string): Observable<Playlist[]> {
