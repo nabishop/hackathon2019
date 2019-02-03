@@ -24,10 +24,7 @@ export class EditUserComponent implements OnInit {
       return;
     }
     this.editForm = this.formBuilder.group({
-      id: [],
-      email: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required]
+      password: ['', Validators.required],
     });
     this.userService.getUserById(+userId)
       .subscribe( data => {

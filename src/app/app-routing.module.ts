@@ -16,7 +16,6 @@ const routes: Routes = [
   { path: 'list-user', component: ListUserComponent },
   { path: 'edit-user', component: EditUserComponent },
   {path : '', component : LoginComponent},
-  //{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: PlaylistDetailComponent },
   { path: 'playlists', component: PlaylistsComponent }

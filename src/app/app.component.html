@@ -16,11 +16,6 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<ng-template #loading>
-  Loading...
-</ng-template>
-
-<div *ngIf="!(playlists == (playlistsVoid$$  | async | async)); else loading"></div>
 
 <ul>
   <li *ngFor="let playlist of playlists" [innerHTML]="playlist.name" (click)="selectedPlaylist = playlist"> 
