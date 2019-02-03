@@ -19,7 +19,7 @@ namespace RhopikApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SongItem>>> GetSongItems()
         {
-            return await _context.SongItems.ToListAsync();
+            return _context.getAllSongs();
         }
 
         // GET: api/Song/5
@@ -81,14 +81,6 @@ namespace RhopikApi.Controllers
         public SongController(SongItemContext context)
         {
             _context = context;
-
-            if (_context.SongItems.Count() == 0)
-            {
-                // Create a new SongItem if collection is empty,
-                // which means you can't delete all SongItems.
-                //_context.SongItems.Add(new SongItem { Name = "Item1" });
-                _context.SaveChanges();
-            }
         }
     }
 }

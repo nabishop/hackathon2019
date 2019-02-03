@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Protocols;
 using RhopikApi.Models;
 
@@ -12,9 +13,15 @@ namespace RhopikApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables();
+
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -23,16 +30,23 @@ namespace RhopikApi
         //container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = "Server=slohacks2019.mysql.database.azure.com;Database=slohacks;User=tschoppcity;Password=password_1;Trusted_Connection=True;";
-            services.AddDbContext<SongItemContext>(opt =>
-                opt.(connectionString));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //var connectionString = "Server=slohacks2019.mysql.database.azure.com;Database=slohacks;User=tschoppcity;Password=password_1;Trusted_Connection=True;";
+            //services.AddDbContext<SongItemContext>(opt =>
+            //opt.(connectionString));
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+
+            services.AddMvc();
+            services.Add(new ServiceDescriptor(typeof(SongItemContext), new SongItemContext(Configuration.GetConnectionString("DefaultConnection"))));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP 
         //request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
+            logger.AddConsole(Configuration.GetSection("Logging"));
+            logger.AddDebug();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -41,13 +55,11 @@ namespace RhopikApi
             {
                 // The default HSTS value is 30 days. You may want to change this for 
                 // production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc(routes => routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}"));
         }
     }
 }

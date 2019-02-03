@@ -9,7 +9,7 @@ namespace RhopikApi.Models
     public class SongItem
     {
         [System.ComponentModel.DataAnnotations.Key]
-        public long song_id { get; set; }
+        public int song_id { get; set; }
         public string name { get; set; }
         public string artist { get; set; }
         public string genre { get; set; }
