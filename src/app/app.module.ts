@@ -12,6 +12,15 @@ import { PlaylistDetailComponent } from './playlist-detail/playlist-detail.compo
 import { AppRoutingModule } from './app-routing.module';
 import { MessagesComponent } from './messages/messages.component';
 
+import { LoginComponent } from './login/login.component';
+import { routing } from './app-routing.module';
+import { AuthenticationService } from './auth.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UserService } from './user.service';
+
+import { AddUserComponent } from './add-user/add-user.component';
+import { ListUserComponent } from './list-user/list-user.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 // @NgModule decorator with its metadata
 @NgModule({
@@ -20,15 +29,21 @@ import { MessagesComponent } from './messages/messages.component';
 	 DashboardComponent,
     PlaylistsComponent,
     PlaylistDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    LoginComponent,
+    AddUserComponent,
+    ListUserComponent,
+    EditUserComponent
   ],
   imports: [
     FormsModule,
+	 routing,
+	ReactiveFormsModule,
     HttpClientModule,
 	BrowserModule,
 	AppRoutingModule
   ],
-  providers: [AppService],
+  providers: [AuthenticationService, UserService, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
