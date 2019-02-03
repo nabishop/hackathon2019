@@ -37,6 +37,7 @@ namespace RhopikApi
 
             services.AddMvc();
             services.Add(new ServiceDescriptor(typeof(SongItemContext), new SongItemContext(Configuration.GetConnectionString("DefaultConnection"))));
+            services.Add(new ServiceDescriptor(typeof(UserItemContext), new UserItemContext(Configuration.GetConnectionString("DefaultConnection"))));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP 
