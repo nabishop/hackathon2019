@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 namespace RhopikApi.Models
 {
-    public class UserItemContext : DbContext
+    public class PlaylistItemContext : DbContext
     {
         public string ConnectionString { get; set; }
 
         public DbSet<UserItem> UserItems { get; set; }
 
-        public UserItemContext(string connectionString)
+        public PlaylistItemContext(string connectionString)
         {
             ConnectionString = connectionString;
         }
@@ -21,23 +21,25 @@ namespace RhopikApi.Models
             return new MySqlConnection(ConnectionString);
         }
 
-        public List<UserItem> GetUsers()
+        public List<PlaylistItem> GetPlaylists()
         {
-            List<UserItem> list = new List<UserItem>();
+            List<PlaylistItem> list = new List<PlaylistItem>();
             using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("select * from users", conn);
+                MySqlCommand cmd = new MySqlCommand("select * from playlists", conn);
 
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        list.Add(new UserItem()
+                        list.Add(new PlaylistItem()
                         {
                             Name = reader["name"].ToString(),
-                            Password = reader["password"].ToString(),
-                            Id = Convert.ToInt32(reader["user_id"])
+                            Vibe = reader["vibe"].ToString(),
+                            DateAdded = reader["date_added"].ToString(),
+                            Song_ID = Convert.ToInt32(reader["song_id"]),
+                            User_ID = Convert.ToInt32(reader["user_id"])
                         });
                     }
                 }
@@ -45,30 +47,31 @@ namespace RhopikApi.Models
             return list;
 
         }
-        public UserItem GetUserWithId(int id)
+        public List<PlaylistItem> GetPlaylistsWithUserID(int id)
         {
-            UserItem user;
+            List<PlaylistItem> list = new List<PlaylistItem>();
             using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT user_id FROM users WHERE user_id=" + id, conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM playlists WHERE user_id=" + id, conn);
 
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        user = new UserItem()
+                        list.Add(new PlaylistItem()
                         {
                             Name = reader["name"].ToString(),
-                            Password = reader["password"].ToString(),
-                            Id = Convert.ToInt32(reader["user_id"])
-                        };
-                        return user;
+                            Vibe = reader["vibe"].ToString(),
+                            DateAdded = reader["date_added"].ToString(),
+                            Song_ID = Convert.ToInt32(reader["song_id"]),
+                            User_ID = Convert.ToInt32(reader["user_id"])
+                        });
                     }
                 }
             }
-            return null;
-
+            return list;
         }
+
     }
 }

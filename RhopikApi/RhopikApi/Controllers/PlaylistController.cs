@@ -4,33 +4,33 @@ using System.Collections.Generic;
 
 namespace RhopikApi.Controllers
 {
-    [Route("api/user")]
+    [Route("api/playlist")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class PlaylistController : ControllerBase
     {
-        private readonly UserItemContext _context;
+        private readonly PlaylistItemContext _context;
 
-        // GET: api/User
+        // GET: api/Playlist
         [HttpGet]
-        public ActionResult<IEnumerable<UserItem>> GetAllUsers()
+        public ActionResult<IEnumerable<PlaylistItem>> GetAllPlaylists()
         {
-            return _context.GetUsers();
+            return _context.GetPlaylists();
         }
 
-        // GET: api/User/5
+        // GET: api/Playlist/5
         [HttpGet("{id}")]
-        public UserItem GetUserWithId(int id)
+        public string GetPlaylistWithId(int id)
         {
-            return _context.GetUserWithId(id);
+            return "value";
         }
 
-        // POST: api/User
+        // POST: api/Playlist
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT: api/User/5
+        // PUT: api/Playlist/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
@@ -42,7 +42,7 @@ namespace RhopikApi.Controllers
         {
         }
 
-        public UserController(UserItemContext context)
+        public PlaylistController(PlaylistItemContext context)
         {
             _context = context;
         }
