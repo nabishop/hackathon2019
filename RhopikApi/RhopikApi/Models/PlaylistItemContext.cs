@@ -45,8 +45,34 @@ namespace RhopikApi.Models
                 }
             }
             return list;
-
         }
+
+        public void PutPlaylistName(int userId, string oldName, string newName)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("UPDATE playlists SET name=" + newName
+                    + " WHERE name=" + oldName + " AND user_id=" + userId, conn);
+
+                System.Console.WriteLine(cmd.ExecuteNonQuery());
+                conn.Close();
+            }
+        }
+
+        public void DeletePlaylist(string name, int userId)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("DELETE FROM playlists where name=" 
+                    + name + " AND user_id=" + userId, conn);
+
+                System.Console.WriteLine(cmd.ExecuteNonQuery());
+                conn.Close();
+            }
+        }
+
         public List<PlaylistItem> GetPlaylistsWithUserID(int id)
         {
             List<PlaylistItem> list = new List<PlaylistItem>();
@@ -73,5 +99,19 @@ namespace RhopikApi.Models
             return list;
         }
 
+        public void PostPlaylist(PlaylistItem Item)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+
+                string insertion = "INSERT into playlists VALUES ('" + Item.Name + "', '" + Item.Vibe + "', '" + Item.DateAdded + "', " + Item.Song_ID + ", " + Item.User_ID + ");";
+                MySqlCommand cmd = new MySqlCommand(insertion, conn);
+
+                // print number of rows affected
+                System.Console.WriteLine(cmd.ExecuteNonQuery());
+                conn.Close();
+            }
+        }
     }
 }

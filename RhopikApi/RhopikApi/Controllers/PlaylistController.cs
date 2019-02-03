@@ -19,27 +19,30 @@ namespace RhopikApi.Controllers
 
         // GET: api/Playlist/5
         [HttpGet("{id}")]
-        public string GetPlaylistWithId(int id)
+        public ActionResult<IEnumerable<PlaylistItem>> GetPlaylistsWithUserId(int id)
         {
-            return "value";
+            return _context.GetPlaylistsWithUserID(id);
         }
 
         // POST: api/Playlist
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(PlaylistItem value)
         {
+            _context.PostPlaylist(value);
         }
 
         // PUT: api/Playlist/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void PutPlaylistName(int userId, string oldName, string newName)
         {
+            _context.PutPlaylistName(userId, oldName, newName);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(int userId, string playlistName)
         {
+            _context.DeletePlaylist(playlistName, userId);
         }
 
         public PlaylistController(PlaylistItemContext context)
