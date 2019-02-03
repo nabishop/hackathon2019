@@ -63,7 +63,7 @@ namespace RhopikApi
             app.UseStaticFiles();
             app.UseMvc(routes => routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}"));
 
-            app.UseCors(builder => builder.WithOrigins("https://localhost:5001/index.html", "https://localhost:4200/index.html"));
+            app.UseCors(builder => builder.WithOrigins("https://localhost:5001", "https://localhost:4200"));
         }
     }
 }
