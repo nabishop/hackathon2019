@@ -17,7 +17,7 @@ namespace RhopikApi.Controllers
 
         // GET: api/Song
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SongItem>>> GetSongItems()
+        public ActionResult<IEnumerable<SongItem>> GetSongItems()
         {
             return _context.getAllSongs();
         }
